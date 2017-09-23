@@ -15,6 +15,10 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'StaticPagesController@home');
-Route::get('/help', 'StaticPagesController@help');
-Route::get('/about', 'StaticPagesController@about');
+//静态首页、帮助页和关于页的路由
+Route::get('/', 'StaticPagesController@home')->name('home');
+Route::get('/help', 'StaticPagesController@help')->name('help');
+Route::get('/about', 'StaticPagesController@about')->name('about');
+
+//用户注册路由
+Route::get('/signup', 'UserController@create')->name('signup');
