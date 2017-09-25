@@ -8466,3 +8466,77 @@ footer .slogon {
   font-weight: bold;
 }
 
+/* sidebar */
+
+aside section {
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+aside section:first-child {
+  border: 0;
+  padding-top: 0;
+}
+
+aside section span {
+  display: block;
+  margin-bottom: 3px;
+  line-height: 1;
+}
+
+section.user_info {
+  padding-bottom: 10px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+section.user_info .gravatar {
+  float: none;
+}
+
+section.user_info h1 {
+  font-size: 1.4em;
+  letter-spacing: -1px;
+  margin-bottom: 3px;
+  margin-top: 15px;
+}
+
+.gravatar {
+  width: 120px;
+  height: 120px;
+  float: left;
+  margin-right: 2px;
+  border-radius: 50%;
+}
+
+/* forms */
+
+input,
+textarea,
+select,
+.uneditable-input {
+  border: 1px solid #bbb;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto !important;
+}
+
+.panel {
+  margin-top: 50px;
+}
+
+/* alert */
+
+.alert ul,
+.alert li {
+  margin: 0;
+  padding: 0;
+}
+
+.alert li {
+  padding: 2px 0;
+  list-style-type: none;
+}
+

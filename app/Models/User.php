@@ -33,4 +33,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function gravatar($uid = '1215222', $size = 'middle')
+    {
+        return "http://mouldbbs.com/uc_server/avatar.php?uid=$uid&size=$size";
+    }
 }
