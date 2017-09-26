@@ -25,3 +25,8 @@ Route::get('/signup', 'UserController@create')->name('signup');
 
 //用户资源路由
 Route::resource('/user', 'UserController');
+
+//会话控制
+Route::get('login', 'SessionsController@create')->name('login');
+Route::post('login', 'SessionsController@store')->name('login');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
