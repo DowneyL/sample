@@ -30,3 +30,8 @@ Route::resource('/user', 'UserController');
 Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
+
+//展会签到功能测试
+Route::get('/mould', 'MouldController@index')->name('mould');
+Route::post('/mould/sign', 'MouldController@store')->name('sign');
+Route::get('/mould/sign/{tel}', 'MouldController@result')->name('sign.result');

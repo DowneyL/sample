@@ -8580,3 +8580,23 @@ input {
   right: 0;
 }
 
+/* Mould sign */
+
+.mould-container .col-md-10 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.mould-container .panel {
+  margin-top: 30px;
+}
+
+.sign-message {
+  width: 100%;
+  text-align: center;
+}
+
+.sign-message .sign-img {
+  display: inline;
+}
+
