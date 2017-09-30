@@ -36,7 +36,7 @@ class MouldController extends Controller
         ]);
 
         session()->flash('success', '签到成功');
-        return redirect()->route('sign.result', 1);
+        return redirect()->route('sign.result', [$sign_data]);
     }
 
     public function result($tel)
