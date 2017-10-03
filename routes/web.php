@@ -47,3 +47,11 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 
 //微博curd
 Route::resource('statuses', 'StatusesController', ['only' => ['store', 'destroy']]);
+
+//微博关注
+Route::get('/user/{user}/followings', 'UserController@followings')->name('user.followings');
+Route::get('/user/{user}/followers', 'UserController@followers')->name('user.followers');
+
+//微博添加关注和取消关注
+Route::post('/user/followers/{user}', 'FollowersController@store')->name('followers.store');
+Route::delete('/user/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');
