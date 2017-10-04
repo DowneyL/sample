@@ -23,26 +23,20 @@ class SessionsController extends Controller
     public function store(Request $request)
     {
        $this->validate($request, [
-           'email' => 'required|email|max:255',
+           'tel' => 'required|max:11',
            'password' => 'required'
        ]);
 
        $credentials = [
-           'email'    => $request->email,
+           'tel'    => $request->tel,
            'password' => $request->password,
        ];
 
        if (Auth::attempt($credentials, $request->has('remember'))) {
-           if (Auth::user()->activated) {
                session()->flash('success', '欢迎回来！');
                return redirect()->intended(route('user.show', [Auth::user()]));
-           } else {
-               Auth::logout();
-               session()->flash('warning', '您的账号未激活，请检查邮箱中的注册邮件进行激活。');
-               return redirect('/');
-           }
        } else {
-           session()->flash('danger', '很抱歉，您的邮箱和密码不匹配');
+           session()->flash('danger', '很抱歉，您的联系方式和密码不匹配');
            return redirect()->back();
        }
     }

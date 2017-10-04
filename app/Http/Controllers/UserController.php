@@ -26,7 +26,9 @@ class UserController extends Controller
     public function create()
     {
         return view('users.create');
+//        return view('test.index');
     }
+
 
     public function show(User $user)
     {
@@ -41,19 +43,30 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:50',
-            'email' => 'required|email|unique:users|max:255',
+            'tel' => 'required|unique:users|max:11',
+            'corporate' => 'required|max:255',
             'password' => 'required|confirmed|min:6'
         ]);
 
         $user = User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'tel' => $request->tel,
+            'corporate' => $request->corporate,
             'password' => bcrypt($request->password),
         ]);
 
-        $this->sendEmailConfirmationTo($user);
-        session()->flash('success', '验证邮件已发送到你的注册邮箱上，请注意查收。');
-        return redirect('/');
+        $credentials = [
+            'tel'    => $request->tel,
+            'password' => $request->password,
+        ];
+
+        if (Auth::attempt($credentials, $request->has('remember'))) {
+            session()->flash('success', '签到成功！');
+            return redirect()->intended(route('user.show', [Auth::user()]));
+        } else {
+            session()->flash('danger', '很抱歉，您的联系方式和密码不匹配');
+            return redirect()->back();
+        }
     }
 
     //修改用户资料
@@ -97,35 +110,6 @@ class UserController extends Controller
         $user->delete();
         session()->flash('success', '成功删除用户！');
         return back();
-    }
-
-    //发送邮件
-    protected function sendEmailConfirmationTo($user)
-    {
-        $view = "emails.confirm";
-        $data = compact('user');
-        $from = 'heng8050lee@foxmail.com';
-        $name = '八月第五天';
-        $to = $user->email;
-        $subject = "感谢注册 AragakiYui ！请确认你的邮箱。";
-
-        Mail::send($view, $data, function ($message) use ($from, $name, $to, $subject) {
-            $message->from($from,$name)->to($to)->subject($subject);
-        });
-    }
-
-    //邮箱激活
-    public function confirmEmail($token)
-    {
-        $user = User::where('activation_token', $token)->firstOrFail();
-
-        $user->activated = true;
-        $user->activation_token = null;
-        $user->save();
-
-        Auth::login($user);
-        session()->flash('success', '恭喜你，激活成功！');
-        return redirect()->route('user.show', [$user]);
     }
 
     //微博关注

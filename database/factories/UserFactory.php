@@ -19,9 +19,10 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
 
     return [
         'name' => $faker->name,
-        'email' => $faker->safeEmail,
+        'tel' => '156'.mt_rand(1000, 9999).mt_rand(1000, 9999),
+        'corporate' => '温州浩瑞网络科技有限公司',
         'is_admin' => false,
-        'activated' => true,
+        'activated' => false,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
         'created_at' => $date_time,

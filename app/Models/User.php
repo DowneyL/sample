@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'tel', 'corporate', 'password',
     ];
 
     /**
@@ -49,12 +49,7 @@ class User extends Authenticatable
     {
         return "http://mouldbbs.com/uc_server/avatar.php?uid=$uid&size=$size";
     }
-
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPassword($token));
-    }
-
+    
     public function statuses()
     {
         return $this->hasMany(Status::class);

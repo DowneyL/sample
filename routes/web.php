@@ -31,14 +31,6 @@ Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
 
-//展会签到功能测试
-Route::get('/mould', 'MouldController@index')->name('mould');
-Route::post('/mould/sign', 'MouldController@store')->name('sign');
-Route::get('/mould/sign/{tel}', 'MouldController@result')->name('sign.result');
-
-//邮箱验证
-Route::get('/signup/confirm/{token}', 'UserController@confirmEmail')->name('confirm_email');
-
 //重置密码
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
