@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
         $user->corporate = '北京美团科技有限公司';
         $user->password = bcrypt('panzer950805scc');
         $user->is_admin = true;
+        $user->gravatar_id = 0;
         $user->activated = true;
         $user->save();
     }

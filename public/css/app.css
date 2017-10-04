@@ -8575,9 +8575,7 @@ input {
 }
 
 .delete-btn {
-  float: right;
-  position: relative;
-  right: 0;
+  margin-top: 18px;
 }
 
 /* Mould sign */

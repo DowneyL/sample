@@ -24,7 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'tel', 'corporate', 'password',
+        'name', 'tel', 'corporate', 'password', 'gravatar_id',
     ];
 
     /**
@@ -45,9 +45,10 @@ class User extends Authenticatable
         });
     }
 
-    public function gravatar($uid = '1215222', $size = 'middle')
+    public function gravatar()
     {
-        return "http://mouldbbs.com/uc_server/avatar.php?uid=$uid&size=$size";
+        $gravatar_ids = $this->attributes['gravatar_id'];
+        return '/img/gravatar/gravatar'.$gravatar_ids.'.png';
     }
     
     public function statuses()

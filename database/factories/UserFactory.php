@@ -25,6 +25,7 @@ $factory->define(App\Models\User::class, function (Faker $faker) {
         'activated' => false,
         'password' => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'gravatar_id' => mt_rand(1, 16),
         'created_at' => $date_time,
         'updated_at' => $date_time,
     ];

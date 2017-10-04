@@ -53,6 +53,7 @@ class UserController extends Controller
             'tel' => $request->tel,
             'corporate' => $request->corporate,
             'password' => bcrypt($request->password),
+            'gravatar_id' => mt_rand(1, 16),
         ]);
 
         $credentials = [
@@ -100,7 +101,7 @@ class UserController extends Controller
     //查看所有用户
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::paginate(9);
         return view('users.index', compact('users'));
     }
 

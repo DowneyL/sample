@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('tel')->unique();
             $table->string('corporate');
             $table->string('password');
+            $table->integer('gravatar_id');
             $table->rememberToken();
             $table->timestamps();
         });
