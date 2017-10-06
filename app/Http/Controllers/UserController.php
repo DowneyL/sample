@@ -127,4 +127,11 @@ class UserController extends Controller
         $title = '粉丝';
         return view('users.show_follow', compact('users', 'title'));
     }
+
+    public function lottery(User $user)
+    {
+//        return view('users.create');
+        return view('users.lottery',compact('user'));
+    }
+
 }

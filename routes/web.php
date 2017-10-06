@@ -47,3 +47,8 @@ Route::get('/user/{user}/followers', 'UserController@followers')->name('user.fol
 //微博添加关注和取消关注
 Route::post('/user/followers/{user}', 'FollowersController@store')->name('followers.store');
 Route::delete('/user/followers/{user}', 'FollowersController@destroy')->name('followers.destroy');
+
+//抽奖
+//Route::resource('/lottery', 'LotteryController');
+Route::get('/lottery', 'LotteryController@index')->name('lottery.index');
+Route::get('/lottery/get_win', 'LotteryController@start')->name('lottery.start');

@@ -14,6 +14,7 @@
       <nav class="collapse navbar-collapse" id="default-navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
         @if (Auth::check())
+            {{--<li><a href="{{ route('user.lottery') }}"><span class="glyphicon glyphicon-gift"></span>抽奖</a></li>--}}
            <li><a href="{{ route('user.index') }}"><span class="glyphicon glyphicon-list"></span>用户列表</a></li>
            <li class="dropdown">
              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
