@@ -15,5 +15,21 @@ return[
         'contacts' => [
             'required' => '联系人不能为空。',
         ],
+        'goods_id' => [
+            'required' => '奖品 id 不能为空。',
+        ],
+        'gname' => [
+            'required' => '奖品名称不能为空。',
+        ],
+        'gimg' => [
+            'required' => '奖品图片不能为空。',
+        ],
+        'gstock' => [
+            'required' => '奖品库存不能为空。',
+        ],
+        'probability' => [
+             'required' => '奖品概率不能为空',
+        ],
     ]
+
 ];

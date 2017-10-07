@@ -1,4 +1,4 @@
-.content{
+.content-lottery{
     margin-top: -10px;
     background-image: url(../img/bg.jpg);
     background-size: 100% 100%;
@@ -114,3 +114,17 @@ img.wz{
 }
 .lottery-list ul li span:nth-child(1){ width: 220px;}
 .lottery-list ul li span:nth-child(2){ width: 220px; margin-left:120px; }
+
+.table-goods > tbody > tr > td{
+    line-height:2.42857143;
+}
+
+.lottery-form{
+    display: inline-block;
+}
+
+@media only screen and (max-width: 768px){
+    .mobile_hide{
+        display: none;
+    }
+}

@@ -2,8 +2,8 @@
 @section('title', '抽奖')
 
 @section('content')
-    <h1>{{ $user->name }}</h1>
-    <div class="content">
+    {{--<h1>{{ $user->name }}</h1>--}}
+    <div class="content-lottery">
         <div class="cj1">
             <!--<img src="https://www.huijindaicn.com/public/images/lottery/pc/pg.png" width="100%" />-->
 

@@ -14,7 +14,7 @@
       <nav class="collapse navbar-collapse" id="default-navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
         @if (Auth::check())
-            {{--<li><a href="{{ route('user.lottery') }}"><span class="glyphicon glyphicon-gift"></span>抽奖</a></li>--}}
+            <li><a href="{{ route('lottery.index') }}"><span class="glyphicon glyphicon-gift"></span>抽奖</a></li>
            <li><a href="{{ route('user.index') }}"><span class="glyphicon glyphicon-list"></span>用户列表</a></li>
            <li class="dropdown">
              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
@@ -23,6 +23,9 @@
              <ul class="dropdown-menu">
                <li><a href="{{ route('user.show', Auth::user()->id) }}">个人中心</a></li>
                <li><a href="{{ route('user.edit', Auth::user()->id) }}">编辑资料</a></li>
+                 @can('master', Auth::user())
+                 <li><a href="{{ route('lottery.show') }}">管理奖品</a></li>
+                 @endcan
                <li class="divider"></li>
                <li>
                  <a id="logout" href="javascript:;">

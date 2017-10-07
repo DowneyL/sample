@@ -19,6 +19,7 @@ class CreateGoodsTable extends Migration
             $table->string('gname');
             $table->string('gimg');
             $table->integer('gstock');
+            $table->integer('probability');
             $table->boolean('description')->default(false);
             $table->timestamps();
         });

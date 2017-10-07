@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>@yield('title', 'AragakiYui') - by me</title>
 
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
     <!-- CSS -->
     {{--<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">--}}
     {{--<link rel="stylesheet" href="http://fonts.useso.com/css?family=Roboto:400,100,300,500">--}}

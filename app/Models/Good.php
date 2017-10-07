@@ -8,6 +8,6 @@ class Good extends Model
 {
     protected $table = 'goods';
     protected $fillable = [
-        'goods_id', 'gname', 'gimg', 'gstock', 'description',
+        'goods_id', 'gname', 'gimg', 'gstock', 'probability', 'description',
     ];
 }
