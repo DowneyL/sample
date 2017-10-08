@@ -39,14 +39,19 @@ function roll() {
     lottery.roll();
     var prize_site = $("#lottery").attr("prize_site");
     if (lottery.times > lottery.cycle + 10 && lottery.index == prize_site) {
-        // var prize_id = $("#lottery").attr("prize_id");
         var prize_name = $("#lottery").attr("prize_name");
-        // alert("中奖名称："+prize_name+"\n中奖id："+prize_id);
-        $.showSuccess('恭喜你中得 '+ prize_name,function(){
-            // get_win_num();
+        $('body').dialog({
+            type:'success',
+            title:'中奖啦！',
+            showBoxShadow:true,
+            buttons:[{name: '确定',className: 'defalut'}],
+            discription:'恭喜您！获得\"' + prize_name + '\"</br>请在“我的奖品”中查看并领取。',
+            buttonsSameWidth:true,
+            animateIn:'rotateInUpLeft-hastrans',
+            animateOut:'rotateOutUpLeft-hastrans'}, function(){
             get_win_list();
-            // get_tot_num();
         });
+
         clearTimeout(lottery.timer);
         lottery.prize = -1;
         lottery.times = 0;
@@ -99,40 +104,10 @@ function get_win_list(){
     }, 'json');
 }
 
-/* 获取剩余抽奖次数 */
-// function get_win_num(){
-//     $.get('/gifts/index.php?ctl=lottery&pc_ct=get_win_num&type=t_box', function(a){
-//         if(typeof a != 'object'){
-//             return;
-//         }
-//         $('.score').html(a.score);
-//         $('.num').html(a.num);
-//         $('.count').html(a.count);
-//     }, 'json');
-// }
-
-/* 获取抽奖排行 */
-// function get_tot_num(){
-//     $.get('/gifts/index.php?ctl=lottery&pc_ct=get_tot_num', function(a){
-//         if(typeof a != 'object'){
-//             return;
-//         }
-//         var html = '';
-//         $.each(a, function(i, n){
-//             html = html+'<span>'+(i+1)+'：'+n.user_name+'('+n.num+'次)</span>';
-//         });
-//         $('.c_count').html(html);
-//     }, 'json');
-// }
-
 var click = false;
-
 $(function() {
-
-    // var ajax_url = "/lottery/index.php?ctl=lottery&pc_ct=get_win";
     var ajax_url = "/lottery/get_win";
     lottery.init('lottery');
-
     /* 开始抽奖 */
     $("#lottery a").click(function() {
         console.log(click);
@@ -140,10 +115,9 @@ $(function() {
             return false;
         } else {
             $.get(ajax_url, {uid: 1}, function(a) { // 获取奖品，也可以在这里判断是否登陆状态
-                alert(a.status);
                 if(!a.code){
                     var _url = a.status == 2 ? '/login' : '/login';
-                    return $.showErr(a.msg, function(){window.location = _url;});
+                    return $('body').dialog({type:'danger',discription:a.msg});
                 }else if(a.win){
                     $("#lottery").attr("prize_site", a.win.id);
                     $("#lottery").attr("prize_name", a.win.name);
@@ -152,18 +126,11 @@ $(function() {
                     click = true;
                     return false;
                 }else{
-                    $.showSuccess('通讯错误 稍后再试');
+                    return $('body').dialog({type:'danger',discription:"通讯错误 稍后再试"});
                 }
             }, "json")
         }
     });
-
-    /*获取积分和用户抽奖次数*/
-    // get_win_num();
-
     /*获取中奖信息*/
     get_win_list();
-
-    /* 获取抽奖前十名 */
-    // get_tot_num();
 })

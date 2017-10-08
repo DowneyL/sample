@@ -74,7 +74,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::Class, 'followers', 'follower_id', 'user_id');
     }
-    
+
     public function follow($user_ids)
     {
         if (!is_array($user_ids)) {

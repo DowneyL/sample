@@ -6,6 +6,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h5>添加商品</h5>
+
             </div>
             <div class="panel-body">
 
@@ -48,8 +49,8 @@
                             <input type="radio" name="description" id="optionsRadios4" value="0" checked> 否
                         </label>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">添加</button>
+                    <button type="submit" class="btn btn-success">添加</button>
+                    <a href="{{ route('lottery.show') }}" class="btn btn-primary">返回</a>
                 </form>
             </div>
         </div>

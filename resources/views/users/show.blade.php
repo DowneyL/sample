@@ -24,7 +24,9 @@
               @include('statuses._status')
             @endforeach
           </ol>
+          <div class="text-center">
           {!! $statuses->render() !!}
+          </div>
         @endif
       </div>
     </div>

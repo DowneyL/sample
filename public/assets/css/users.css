@@ -113,9 +113,18 @@
         width:110px;
         height:110px;
     }
-    .container, .col-md-8 {
+    .no-padding {
         padding-left:0;
         padding-right:0;
+    }
+    .statuses .gravatar{
+        height:50px;
+        width:50px;
+        margin-right: 15px;
+        margin-top: -3px;
+    }
+    .statuses .content{
+        margin-left: 5px;
     }
 }
 .panel{

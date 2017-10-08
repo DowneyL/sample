@@ -35,7 +35,7 @@ class UserController extends Controller
         $statuses = $user->statuses()
             ->orderBy('created_at', 'desc')
             ->paginate(30);
-        return view('users.show', compact('user','statuses'));
+        return view('users.show', compact('user','statuses', 'wins'));
     }
 
     //会话控制

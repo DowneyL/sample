@@ -8621,7 +8621,8 @@ input {
 
 .statuses .content {
   display: block;
-  margin-left: 60px;
+  padding: 10px 0;
+  margin-left: 90px;
   word-break: break-word;
 }
 

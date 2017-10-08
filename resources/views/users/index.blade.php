@@ -9,6 +9,8 @@
           @include('users._user')
         @endforeach
     </div>
-    {!! $users->render() !!}
+    <div class="text-center">
+        {!! $users->render() !!}
+    </div>
   </div>
 @stop

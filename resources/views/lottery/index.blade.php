@@ -2,18 +2,9 @@
 @section('title', '抽奖')
 
 @section('content')
-    {{--<h1>{{ $user->name }}</h1>--}}
-    <div class="content-lottery">
-        <div class="cj1">
-            <!--<img src="https://www.huijindaicn.com/public/images/lottery/pc/pg.png" width="100%" />-->
-
-            <!-- 点我注册 -->
-            <!--<a href="{url x="index" r="user#register"}" target="_blank" class="to_reg"></a>-->
-            <!-- 立即签到 -->
-            <!--<a href="{url x="index" r="uc_center"}" target="_blank" class="to_log"></a>-->
-
-
-            <!-- 九宫格抽奖 -->
+    <div class="row">
+        <div class="col-md-offset-1 col-md-9">
+            {{--<h1>{{ $user->name }}</h1>--}}
             <div id="lottery">
                 <table border="0" cellpadding="0" cellspacing="0">
                     <tr>
@@ -75,17 +66,10 @@
                         <td class="lottery-unit lottery-unit-8"><img src="https://www.huijindaicn.com/public/attachment/1_images/lottery/jf-300.png"><div class="mask"></div></td>
                     </tr>
                 </table>
-            </div>
 
+            </div>
             <!-- 九宫格中奖列表 -->
             <div class="list lottery-list"></div>
-
-            <!-- 用户抽奖次数 -->
-            <div class="l_count">
-                <p>剩余积分：<span class="score"></span></p>
-                <p>可抽奖次数：<span class="num"></span></p>
-                <p>已抽奖次数：<span class="count"></span></p>
-            </div>
         </div>
     </div>
 @stop

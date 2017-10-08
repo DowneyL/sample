@@ -25,18 +25,10 @@ class LotteryController extends Controller
     {
         $user_id = Auth::user()->id;
         $lottery_flag = Auth::user()->activated;
-
         $json = array('code' => 0, 'msg' => '', 'uid' => $user_id);
 
-        if (!$user_id) {
-            $json['msg'] = '请登录后再试！';
-            $json['status'] = 2;
-//            es_session::set("gopreview", "/index.php?ctl=user&act=login");
-            return $json;
-        }
-
         if ($lottery_flag) {
-            $json['msg'] = '您已参与抽奖，点击查看您的奖品！';
+            $json['msg'] = '您已参与抽奖，请勿重复参与！';
             $json['status'] = 2;
             return $json;
         }
@@ -60,34 +52,10 @@ class LotteryController extends Controller
             '14' => array('id' => 14, 'good_id' => 57, 'name' => '理财红包88元', 'v' => 1),
             '15' => array('id' => 15, 'good_id' => 69, 'name' => '护腰带', 'v' => 5),
         );
-
-//        $arr = array(
-//            '0' => array('id'=>0,'good_id'=>50,'name'=>'平台10积分','v'=>0),
-//            '1' => array('id'=>1,'good_id'=>70,'name'=>'电动打蛋机','v'=>0),
-//            '2' => array('id'=>2,'good_id'=>54,'name'=>'理财红包5元','v'=>0),
-//            '3' => array('id'=>3,'good_id'=>66,'name'=>'GPS手表电话','v'=>0),
-//            '4' => array('id'=>4,'good_id'=>51,'name'=>'平台50积分','v'=>0),
-//            '5' => array('id'=>5,'good_id'=>68,'name'=>'智能无人航拍','v'=>1),
-//            '6' => array('id'=>6,'good_id'=>53,'name'=>'理财红包18元','v'=>0),
-//            '7' => array('id'=>7,'good_id'=>60,'name'=>'全自动咖啡机','v'=>0),
-//            '8' => array('id'=>8,'good_id'=>52,'name'=>'平台300积分','v'=>0),
-//            '9' => array('id'=>9,'good_id'=>59,'name'=>'20元话费','v'=>0),
-//            '10' => array('id'=>10,'good_id'=>67,'name'=>'全自动榨汁机','v'=>0),
-//            '11' => array('id'=>11,'good_id'=>58,'name'=>'10元话费','v'=>0),
-//            '12' => array('id'=>12,'good_id'=>56,'name'=>'理财红包58元','v'=>0),
-//            '13' => array('id'=>13,'good_id'=>61,'name'=>'电子血压仪','v'=>0),
-//            '14' => array('id'=>14,'good_id'=>57,'name'=>'理财红包88元','v'=>0),
-//            '15' => array('id'=>15,'good_id'=>69,'name'=>'护腰带','v'=>0),
-//        );
-
-        $user_ids = array(
-            '13' => array(20861, 3661, 20631, 7433, 2447, 7239, 12471, 3338, 13031, 12070), // 24小时保温杯
-            '15' => array(2086, 8824, 6699, 747, 2291, 1127, 2955, 2408, 5127, 12070), // 智能运动手环
-        );
-
-        /*  正常抽奖  */
+        /*  开始抽奖  */
         $key = $this->get_rand($arr);
         $win = $arr[$key];
+        //输出抽奖信息
 //        echo $user_id."<br>";
 //        echo $lottery_flag."<br>";
 //        echo $key;
@@ -95,26 +63,20 @@ class LotteryController extends Controller
 //        print_r($win);
 //        echo "</pre>";
 
-        /*  特殊客户 抽实物  */
-//        $g_count = $GLOBALS['db']->getOne("SELECT count(*) FROM ".DB_PREFIX."turntable_user_goods WHERE user_id = ".$GLOBALS['user_info']['id']." AND type='t_box' AND goods_id IN(61,66,67,68,69,70)");
-//        foreach ($user_ids as $k => $v) {
-//            if(in_array($user_id, $v) && !$g_count)
-//            {
-//                $win = $arr[$k];
-//                break;
-//            }
-//        }
-
-//        $good = $GLOBALS['db']->getRow("SELECT * FROM ".DB_PREFIX."turntable_goods WHERE id = ".$win['good_id']);
+        $good = DB::select('select * from goods where goods_id = ?', [$win['good_id']]);
 
         // 抽奖成功
-        if (!empty($win)) {
-            // 扣除抽奖积分，或赠送机会
-//            $this->upadte_user_num_score($user_num,$user_score);
-            // 添加奖品给用户
-//            $this->update_user_goods($good);
-            $affected = DB::update('update users set activated = 1 where id = ?', ["$user_id"]);
-            if ($affected) {
+        if (!empty($good)) {
+            //用户失去唯一抽奖机会
+            $affected = DB::update('update users set activated = 1 where id = ?', [$user_id]);
+
+            //添加抽奖记录
+            $inserted = GoodLog::create([
+                'uid' => $user_id,
+                'gsid' => $win['good_id']
+            ]);
+
+            if ($affected && $inserted) {
                 return array(
                     'code' => 1,
                     'status' => 1,
@@ -154,10 +116,13 @@ class LotteryController extends Controller
         }
         return $result;
     }
-
+    
+    //公共方法
     public function index()
     {
         $user = Auth::user();
+//        $wins = Good::with('wins')->get();
+//        dd($wins);
         return view('lottery.index', compact('user'));
     }
 
