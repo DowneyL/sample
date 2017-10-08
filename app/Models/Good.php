@@ -11,5 +11,4 @@ class Good extends Model
     protected $fillable = [
         'goods_id', 'gname', 'gimg', 'gstock', 'probability', 'description',
     ];
-
 }

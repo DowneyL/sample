@@ -11,6 +11,4 @@ class GoodLog extends Model
     protected $fillable = [
         'uid', 'gsid', 'receive'
     ];
-
-
 }

@@ -34,23 +34,41 @@ class LotteryController extends Controller
         }
 
         // 可抽中奖品列表
+//        $arr = array(
+//            '0' => array('id' => 0, 'good_id' => 50, 'name' => '平台10积分', 'v' => 15),
+//            '1' => array('id' => 1, 'good_id' => 70, 'name' => '电动打蛋机', 'v' => 1),
+//            '2' => array('id' => 2, 'good_id' => 54, 'name' => '理财红包5元', 'v' => 30),
+//            '3' => array('id' => 3, 'good_id' => 66, 'name' => 'GPS手表电话', 'v' => 0),
+//            '4' => array('id' => 4, 'good_id' => 51, 'name' => '平台50积分', 'v' => 15),
+//            '5' => array('id' => 5, 'good_id' => 68, 'name' => '智能无人航拍', 'v' => 1),
+//            '6' => array('id' => 6, 'good_id' => 53, 'name' => '理财红包18元', 'v' => 20),
+//            '7' => array('id' => 7, 'good_id' => 60, 'name' => '全自动咖啡机', 'v' => 5),
+//            '8' => array('id' => 8, 'good_id' => 52, 'name' => '平台300积分', 'v' => 10),
+//            '9' => array('id' => 9, 'good_id' => 59, 'name' => '20元话费', 'v' => 5),
+//            '10' => array('id' => 10, 'good_id' => 67, 'name' => '全自动榨汁机', 'v' => 3),
+//            '11' => array('id' => 11, 'good_id' => 58, 'name' => '10元话费', 'v' => 10),
+//            '12' => array('id' => 12, 'good_id' => 56, 'name' => '理财红包58元', 'v' => 10),
+//            '13' => array('id' => 13, 'good_id' => 61, 'name' => '电子血压仪', 'v' => 10),
+//            '14' => array('id' => 14, 'good_id' => 57, 'name' => '理财红包88元', 'v' => 1),
+//            '15' => array('id' => 15, 'good_id' => 69, 'name' => '护腰带', 'v' => 5),
+//        );
         $arr = array(
-            '0' => array('id' => 0, 'good_id' => 50, 'name' => '平台10积分', 'v' => 15),
-            '1' => array('id' => 1, 'good_id' => 70, 'name' => '电动打蛋机', 'v' => 1),
-            '2' => array('id' => 2, 'good_id' => 54, 'name' => '理财红包5元', 'v' => 30),
-            '3' => array('id' => 3, 'good_id' => 66, 'name' => 'GPS手表电话', 'v' => 0),
-            '4' => array('id' => 4, 'good_id' => 51, 'name' => '平台50积分', 'v' => 15),
-            '5' => array('id' => 5, 'good_id' => 68, 'name' => '智能无人航拍', 'v' => 1),
-            '6' => array('id' => 6, 'good_id' => 53, 'name' => '理财红包18元', 'v' => 20),
-            '7' => array('id' => 7, 'good_id' => 60, 'name' => '全自动咖啡机', 'v' => 5),
-            '8' => array('id' => 8, 'good_id' => 52, 'name' => '平台300积分', 'v' => 10),
-            '9' => array('id' => 9, 'good_id' => 59, 'name' => '20元话费', 'v' => 5),
-            '10' => array('id' => 10, 'good_id' => 67, 'name' => '全自动榨汁机', 'v' => 3),
-            '11' => array('id' => 11, 'good_id' => 58, 'name' => '10元话费', 'v' => 10),
-            '12' => array('id' => 12, 'good_id' => 56, 'name' => '理财红包58元', 'v' => 10),
-            '13' => array('id' => 13, 'good_id' => 61, 'name' => '电子血压仪', 'v' => 10),
-            '14' => array('id' => 14, 'good_id' => 57, 'name' => '理财红包88元', 'v' => 1),
-            '15' => array('id' => 15, 'good_id' => 69, 'name' => '护腰带', 'v' => 5),
+            '0' => array('id' => 0, 'good_id' => 1, 'name' => '平台10积分', 'v' => 15),
+            '1' => array('id' => 1, 'good_id' => 2, 'name' => '电动打蛋机', 'v' => 1),
+            '2' => array('id' => 2, 'good_id' => 3, 'name' => '理财红包5元', 'v' => 30),
+            '3' => array('id' => 3, 'good_id' => 4, 'name' => 'GPS手表电话', 'v' => 0),
+            '4' => array('id' => 4, 'good_id' => 5, 'name' => '平台50积分', 'v' => 15),
+            '5' => array('id' => 5, 'good_id' => 6, 'name' => '智能无人航拍', 'v' => 1),
+            '6' => array('id' => 6, 'good_id' => 7, 'name' => '理财红包18元', 'v' => 20),
+            '7' => array('id' => 7, 'good_id' => 8, 'name' => '全自动咖啡机', 'v' => 5),
+            '8' => array('id' => 8, 'good_id' => 9, 'name' => '平台300积分', 'v' => 10),
+            '9' => array('id' => 9, 'good_id' => 10, 'name' => '20元话费', 'v' => 5),
+            '10' => array('id' => 10, 'good_id' => 11, 'name' => '全自动榨汁机', 'v' => 3),
+            '11' => array('id' => 11, 'good_id' => 12, 'name' => '10元话费', 'v' => 10),
+            '12' => array('id' => 12, 'good_id' => 13, 'name' => '理财红包58元', 'v' => 10),
+            '13' => array('id' => 13, 'good_id' => 14, 'name' => '电子血压仪', 'v' => 10),
+            '14' => array('id' => 14, 'good_id' => 15, 'name' => '理财红包88元', 'v' => 1),
+            '15' => array('id' => 15, 'good_id' => 16, 'name' => '护腰带', 'v' => 5),
         );
         /*  开始抽奖  */
         $key = $this->get_rand($arr);
@@ -63,7 +81,7 @@ class LotteryController extends Controller
 //        print_r($win);
 //        echo "</pre>";
 
-        $good = DB::select('select * from goods where goods_id = ?', [$win['good_id']]);
+        $good = DB::select('select * from goods where gid = ?', [$win['good_id']]);
 
         // 抽奖成功
         if (!empty($good)) {
@@ -121,8 +139,6 @@ class LotteryController extends Controller
     public function index()
     {
         $user = Auth::user();
-//        $wins = Good::with('wins')->get();
-//        dd($wins);
         return view('lottery.index', compact('user'));
     }
 
