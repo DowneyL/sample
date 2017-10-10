@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/users.css">
     <link rel="stylesheet" href="/assets/css/lottery.css">
-    <link rel="shortcut icon" href="/assets/ico/favicon.png">
+    <link rel="shortcut icon" href="/assets/ico/panda.png">
   </head>
   <body>
     @include('layouts._header')

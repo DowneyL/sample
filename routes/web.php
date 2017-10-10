@@ -53,10 +53,13 @@ Route::delete('/user/followers/{user}', 'FollowersController@destroy')->name('fo
 Route::get('/lottery', 'LotteryController@index')->name('lottery.index');
 Route::get('/lottery/get_win', 'LotteryController@start')->name('lottery.start');
 Route::get('/lottery/get_list','LotteryController@get_list')->name('lottery.get_list');
-
 Route::get('/lottery/set_goods', 'LotteryController@show')->name('lottery.show');
 Route::get('/lottery/edit_goods', 'LotteryController@edit')->name('lottery.edit');
+
 Route::get('/lottery/change_goods/{good}', 'LotteryController@change')->name('lottery.change');
 Route::patch('/lottery/update_goods/{good}', 'LotteryController@update')->name('lottery.update');
 Route::delete('/lottery/set_goods/{good}', 'LotteryController@destroy')->name('lottery.destroy');
 Route::post('/lottery/store_goods','LotteryController@store')->name('lottery.store');
+
+//奖品相关
+Route::get('/prizes/{user}', 'PrizeController@index')->name('prizes.index');

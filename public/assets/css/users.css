@@ -101,6 +101,17 @@
     color: #eb1768;
     background: #f7f5ec;
 }
+
+.panel{
+    margin-top:30px;
+}
+
+/*奖品相关样式*/
+.empty-list img{
+    display:inline;
+}
+
+
 @media only screen and (max-width: 990px){
     .our-team{ margin-bottom: 30px; }
 }
@@ -127,6 +138,4 @@
         margin-left: 5px;
     }
 }
-.panel{
-    margin-top:30px;
-}
+

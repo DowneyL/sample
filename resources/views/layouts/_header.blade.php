@@ -22,6 +22,7 @@
              </a>
              <ul class="dropdown-menu">
                <li><a href="{{ route('user.show', Auth::user()->id) }}">个人中心</a></li>
+                 <li><a href="{{ route('prizes.index', Auth::user()->id) }}">我的奖品</a></li>
                <li><a href="{{ route('user.edit', Auth::user()->id) }}">编辑资料</a></li>
                  @can('master', Auth::user())
                  <li><a href="{{ route('lottery.show') }}">管理奖品</a></li>
