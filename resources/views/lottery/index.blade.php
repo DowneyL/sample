@@ -69,7 +69,9 @@
 
             </div>
             <!-- 九宫格中奖列表 -->
-            <div class="list lottery-list"></div>
+            <div class="list lottery-list">
+
+            </div>
         </div>
     </div>
 @stop

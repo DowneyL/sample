@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/assets/css/users.css">
     <link rel="stylesheet" href="/assets/css/lottery.css">
     <link rel="shortcut icon" href="/assets/ico/favicon.png">
-
   </head>
   <body>
     @include('layouts._header')
@@ -25,6 +24,7 @@
     <script src="/assets/js/jquery-1.11.1.min.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/js/dialog.js"></script>
+    <script src="/assets/js/jquery.totemticker.js"></script>
    <script src="/assets/js/lottery.js"></script>
   </body>
 </html>

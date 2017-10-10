@@ -79,19 +79,19 @@ function roll() {
 
 /* 获取中奖列表 */
 function get_win_list(){
-    $.get('/gifts/index.php?ctl=lottery&pc_ct=get_new_win&num=100', function(a){
+    $.get('/lottery/get_list', function(a){
         // console.log(a);
         if(typeof a != 'object'){
             return;
         }
+
+        html = '<ul>';
         for(k in a){
-            html = '<ul>';
-            for(i = 0, l = a[k].length; i < l; i++){
-                html += '<li><span>'+ a[k][i].user_name +'</span><span>'+ a[k][i].goods_name +'</span></li>';
-            }
-            html += '</ul>';
-            $('.lottery-list').html(html);
+            html += '<li><span>'+ a[k].name +'</span><span>'+ a[k].gname +'</span></li>';
         }
+        html += '</ul>';
+        $('.lottery-list').html(html);
+        
         /* 中奖列表滚动插件 */
         $('.lottery-list ul').totemticker({
             row_height: '21px',

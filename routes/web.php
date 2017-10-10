@@ -52,6 +52,8 @@ Route::delete('/user/followers/{user}', 'FollowersController@destroy')->name('fo
 //Route::resource('/lottery', 'LotteryController');
 Route::get('/lottery', 'LotteryController@index')->name('lottery.index');
 Route::get('/lottery/get_win', 'LotteryController@start')->name('lottery.start');
+Route::get('/lottery/get_list','LotteryController@get_list')->name('lottery.get_list');
+
 Route::get('/lottery/set_goods', 'LotteryController@show')->name('lottery.show');
 Route::get('/lottery/edit_goods', 'LotteryController@edit')->name('lottery.edit');
 Route::get('/lottery/change_goods/{good}', 'LotteryController@change')->name('lottery.change');

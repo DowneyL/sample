@@ -95,7 +95,7 @@ img.wz{
     /*overflow: hidden; position: absolute; right:220px;*/
 }
 .list ul li {
-    transition: none !important; color:#fae569; font-size: 16px;
+    transition: none !important; color:#000; font-size: 16px;
     line-height: 25px;
 }
 .list ul li span{ text-align: center; display: inline-block;}
@@ -103,11 +103,11 @@ img.wz{
 
 .lottery-list{
     /*width: 600px;*/
-    /*height: 400px;*/
+    height: 400px;
     /*top: 1000px;*/
 }
-.lottery-list ul li span:nth-child(1){ width: 220px;}
-.lottery-list ul li span:nth-child(2){ width: 220px; margin-left:120px; }
+/*.lottery-list ul li span:nth-child(1){ width: 220px;}*/
+/*.lottery-list ul li span:nth-child(2){ width: 220px; margin-left:120px; }*/
 
 .table-goods > tbody > tr > td{
     line-height:2.42857143;

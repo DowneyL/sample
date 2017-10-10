@@ -134,6 +134,29 @@ class LotteryController extends Controller
         }
         return $result;
     }
+
+    private function get_new_win()
+    {
+        $num = 10;
+        $list = array();
+//        $users = DB::table('users')
+//            ->join('goods_log', 'users.id', '=', 'goods_log.uid')
+//            ->get();
+//
+//        $goods = DB::table('goods')
+//            ->join('goods_log', 'goods.gid', '=', 'goods_log.gsid')
+//            ->get();
+
+        $list = DB::table('goods_log')
+            ->join('users', 'goods_log.uid', '=', 'users.id')
+            ->join('goods', 'goods_log.gsid', '=', 'goods.gid')
+            ->select('goods_log.rid','users.name','users.tel','users.corporate','goods.gname')
+            ->orderBy('goods_log.rid', 'desc')
+            ->limit($num)
+            ->get();
+        return $list;
+
+    }
     
     //公共方法
     public function index()
@@ -149,6 +172,12 @@ class LotteryController extends Controller
         return $data;
     }
 
+    public function get_list()
+    {
+        $arr = $this->get_new_win();
+        $data = json_encode($arr);
+        return $data;
+    }
 
     public function show()
     {
