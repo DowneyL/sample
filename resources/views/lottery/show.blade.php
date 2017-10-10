@@ -49,6 +49,7 @@
             </table>
         @else
             <small>目前暂未设置任何奖品</small>
+            <a href="{{ route('lottery.edit') }}" class="btn btn-sm btn-success"><i class="fa fa-plus" aria-hidden="true"></i> 添加</a>
         @endif
     </div>
     </div>
