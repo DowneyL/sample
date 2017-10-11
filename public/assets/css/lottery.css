@@ -31,7 +31,7 @@
     width: 750px;
     height: 540px;
     /*margin: 0px auto;*/
-    background: url(../img/lottery.png) no-repeat;
+    background: url(../img/lottery/lottery.png) no-repeat;
     background-size: 100% 100%;
     /*position: absolute;*/
     /*top: 110px;*/
@@ -56,11 +56,11 @@ img.wz{
     /*width:90px;*/
     height:200px;
     display:block;text-decoration:none;
-    background:url(../img/lottery1.png) no-repeat top center;
+    background:url(../img/lottery/lottery1.png) no-repeat top center;
     background-size: 100% 100%;
 }
 #lottery table td a:hover{
-    background-image:url(../img/lottery2.png);
+    background-image:url(../img/lottery/lottery2.png);
 }
 #lottery table td.active .mask{display:block;}
 .mask{
@@ -69,7 +69,7 @@ img.wz{
     position:absolute;
     left:-5px;
     top: 0;
-    background:url(../img/mask.png) no-repeat;
+    background:url(../img/lottery/mask.png) no-repeat;
     background-size: 100% 100%;
     display:none;
     border-radius: 10px;

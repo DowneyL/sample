@@ -12,6 +12,7 @@
             <div class="panel-body">
                 @if (count($prizes) > 0)
                     @foreach ($prizes as $prize)
+                        <img src="/assets/img/lottery/{{ $prize->gimg }}.png" alt="{{ $prize->gimg }}">
                         {{ $prize->gname }}
                     @endforeach
                 @else

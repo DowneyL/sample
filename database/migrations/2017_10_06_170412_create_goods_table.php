@@ -15,9 +15,10 @@ class CreateGoodsTable extends Migration
     {
         Schema::create('goods', function (Blueprint $table) {
             $table->increments('gid');
-            $table->integer('goods_id')->index();
             $table->string('gname');
             $table->string('gimg');
+            $table->string('con_point');
+            $table->integer('dstock');
             $table->integer('gstock');
             $table->integer('probability');
             $table->boolean('description')->default(false);
