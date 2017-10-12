@@ -29,7 +29,7 @@ Route::get('/signup', 'UserController@create')->name('signup');
 Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
     Route::get('/wechat_users', function () {
         $wechat_user = session('wechat.oauth_user'); // 拿到授权用户资料
-        return view('wechat_users.show', compact('wechat_user'));
+        return view('wechat_users.index', compact('wechat_user'));
     });
 });
 
