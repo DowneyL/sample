@@ -64,6 +64,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials, $request->has('remember'))) {
             session()->flash('success', '签到成功！');
             return redirect()->intended(route('user.show', [Auth::user()]));
+//            return redirect()->route('user.show', [Auth::user()]);
         } else {
             session()->flash('danger', '很抱歉，您的联系方式和密码不匹配');
             return redirect()->back();
