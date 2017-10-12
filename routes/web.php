@@ -25,6 +25,14 @@ Route::get('/about', 'StaticPagesController@about')->name('about');
 //用户注册路由
 Route::get('/signup', 'UserController@create')->name('signup');
 
+
+Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+    Route::get('/wechat_users', function () {
+        $wechat_user = session('wechat.oauth_user'); // 拿到授权用户资料
+        return view('users.show', compact('wechat_user'));
+    });
+});
+
 //用户资源路由
 Route::resource('/user', 'UserController');
 
