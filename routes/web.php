@@ -15,6 +15,8 @@
 //     return view('welcome');
 // });
 
+Route::any('/wechat', 'WeChatController@serve');
+
 //静态首页、帮助页和关于页的路由
 Route::get('/', 'StaticPagesController@home')->name('home');
 Route::get('/help', 'StaticPagesController@help')->name('help');
