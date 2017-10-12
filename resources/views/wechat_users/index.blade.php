@@ -3,7 +3,7 @@
 
 @section('content')
     <ul>
-        <li>{{ $wechat_user->getAvatar() }}</li>
+        <li><img src="{{ $wechat_user->getAvatar() }}" class="img-circle"></li>
         <li>{{ $wechat_user->getName() }}</li>
     </ul>
 @stop

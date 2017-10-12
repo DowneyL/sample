@@ -26,10 +26,10 @@ Route::get('/about', 'StaticPagesController@about')->name('about');
 Route::get('/signup', 'UserController@create')->name('signup');
 
 
-Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+Route::group(['middleware' => ['web', 'wechat.oauth:snsapi_userinfo']], function () {
     Route::get('/wechat_users', function () {
         $wechat_user = session('wechat.oauth_user'); // 拿到授权用户资料
-        dd($wechat_user);
+	dd($wechat_user);
         return view('wechat_users.index', compact('wechat_user'));
     });
 });
